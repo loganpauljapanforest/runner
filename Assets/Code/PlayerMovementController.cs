@@ -23,6 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     public int MaxNumberOfJumps = 2;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
+    public KeyCode DashKey = KeyCode.D;
     
     private int jumpsRemaining = 0;
     private int currentHealth = 0;
@@ -76,6 +77,10 @@ public class PlayerMovementController : MonoBehaviour
         else if (Input.GetKey(SlideKey) && grounded)
         {
             animationManager.SwitchTo(PlayerAnimationStates.Slide);
+        }
+        else if(Input.GetKey(DashKey) && !grounded)
+        {
+
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
