@@ -27,6 +27,7 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
     public KeyCode DashKey = KeyCode.D;
+    public KeyCode SlamKey = KeyCode.S;
     
     private int jumpsRemaining = 0;
     private int currentHealth = 0;
@@ -37,6 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
     private bool dashing = false;
+    private Rigidbody2D myrb;
 
     // Start is called before the first frame update
     void Start()
@@ -59,12 +61,19 @@ public class PlayerMovementController : MonoBehaviour
 
         // Reset score
         PlayerSaveData.DistanceRun = 0;
+
+        myrb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         bool grounded = IsGrounded();
+
+        if(transform.position.y < -0.5)
+        {
+            transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
+        }
 
         // Jumping
         if (Input.GetKeyDown(JumpKey))
@@ -83,9 +92,14 @@ public class PlayerMovementController : MonoBehaviour
             animationManager.SwitchTo(PlayerAnimationStates.Slide);
         }
         // Dashing
-        else if(Input.GetKey(DashKey) && !grounded && !dashing)
+        else if(Input.GetKeyDown(DashKey) && !grounded && !dashing)
         {
             dashing = true;
+        }
+        // Slamming
+        else if(Input.GetKeyDown(SlamKey) && !grounded)
+        {
+            myrb.gravityScale = 20;
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
@@ -105,6 +119,10 @@ public class PlayerMovementController : MonoBehaviour
             {
                 dashing = false;
             }
+        }
+        if(grounded)
+        {
+            myrb.gravityScale = 3;
         }
 
         // Lock the player to X = StartingX;
