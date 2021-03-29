@@ -21,6 +21,9 @@ public class PlayerMovementController : MonoBehaviour
     public int MaxHealth = 3;
     public float JumpHeight = 5;
     public int MaxNumberOfJumps = 2;
+    public float deceleration = 4;
+    public int dashDistance = 5;
+    public float dashSpeed = 15;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
     public KeyCode DashKey = KeyCode.D;
@@ -33,6 +36,7 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject distanceObj = null;
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
+    private bool dashing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,9 +82,12 @@ public class PlayerMovementController : MonoBehaviour
         {
             animationManager.SwitchTo(PlayerAnimationStates.Slide);
         }
-        else if(Input.GetKey(DashKey) && !grounded)
+        // Dashing
+        else if(Input.GetKey(DashKey) && !grounded && !dashing)
         {
-
+            dashing = true;
+            StartCoroutine(Dash());
+            dashing = false;
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
@@ -94,7 +101,11 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         // Lock the player to X = StartingX;
-        gameObject.transform.position = new Vector3(startingX, transform.position.y, transform.position.z);
+        //gameObject.transform.position = new Vector3(startingX, transform.position.y, transform.position.z);
+        if (transform.position.x != startingX && !dashing)
+        {
+            Vector2.MoveTowards(transform.position, new Vector3(startingX, transform.position.y, transform.position.z), deceleration);
+        }
 
         // Update the Distance travelled
         PlayerSaveData.DistanceRun += MoveSpeed * Time.deltaTime;
@@ -146,5 +157,14 @@ public class PlayerMovementController : MonoBehaviour
     public bool IsGrounded()
     {
         return jumpsRemaining == MaxNumberOfJumps;
+    }
+
+    IEnumerator Dash()
+    {
+        while (transform.position.x < startingX + dashDistance)
+        {
+            Vector2.MoveTowards(transform.position, new Vector3(startingX + dashDistance, transform.position.y, transform.position.z), dashSpeed);
+        }
+        yield return null;
     }
 }

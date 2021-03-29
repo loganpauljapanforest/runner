@@ -151,8 +151,12 @@ MonoBehaviour:
   MaxHealth: 3
   JumpHeight: 10
   MaxNumberOfJumps: 2
+  deceleration: 4
+  dashDistance: 20
+  dashSpeed: 15
   JumpKey: 32
   SlideKey: 304
+  DashKey: 100
 --- !u!95 &22022183816750200
 Animator:
   serializedVersion: 3
