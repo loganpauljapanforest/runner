@@ -151,9 +151,9 @@ MonoBehaviour:
   MaxHealth: 3
   JumpHeight: 10
   MaxNumberOfJumps: 2
-  deceleration: 4
-  dashDistance: 20
-  dashSpeed: 15
+  deceleration: 0.03
+  dashDistance: 6
+  dashSpeed: 1
   JumpKey: 32
   SlideKey: 304
   DashKey: 100

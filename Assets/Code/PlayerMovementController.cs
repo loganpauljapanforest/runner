@@ -86,8 +86,6 @@ public class PlayerMovementController : MonoBehaviour
         else if(Input.GetKey(DashKey) && !grounded && !dashing)
         {
             dashing = true;
-            StartCoroutine(Dash());
-            dashing = false;
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
@@ -100,11 +98,20 @@ public class PlayerMovementController : MonoBehaviour
             animationManager.SwitchTo(PlayerAnimationStates.Jump);
         }
 
+        if(dashing)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector3(startingX + dashDistance, transform.position.y, transform.position.z), dashSpeed);
+            if(transform.position.x >= dashDistance)
+            {
+                dashing = false;
+            }
+        }
+
         // Lock the player to X = StartingX;
         //gameObject.transform.position = new Vector3(startingX, transform.position.y, transform.position.z);
-        if (transform.position.x != startingX && !dashing)
+        if (transform.position.x > startingX && !dashing)
         {
-            Vector2.MoveTowards(transform.position, new Vector3(startingX, transform.position.y, transform.position.z), deceleration);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector3(startingX, transform.position.y, transform.position.z), deceleration);
         }
 
         // Update the Distance travelled
@@ -157,14 +164,5 @@ public class PlayerMovementController : MonoBehaviour
     public bool IsGrounded()
     {
         return jumpsRemaining == MaxNumberOfJumps;
-    }
-
-    IEnumerator Dash()
-    {
-        while (transform.position.x < startingX + dashDistance)
-        {
-            Vector2.MoveTowards(transform.position, new Vector3(startingX + dashDistance, transform.position.y, transform.position.z), dashSpeed);
-        }
-        yield return null;
     }
 }
