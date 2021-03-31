@@ -32,7 +32,7 @@ public class ScrollHorizontal : MonoBehaviour
         {
             if (transform.position.x >= WrapZoneRight)
             {
-                position.x = WrapZoneLeft;
+                position.x = WrapZoneLeft - transform.position.x - WrapZoneRight;
             }
         }
         // Left <-- Right, Reset
@@ -40,7 +40,7 @@ public class ScrollHorizontal : MonoBehaviour
         {
             if (transform.position.x <= WrapZoneLeft)
             {
-                position.x = WrapZoneRight;
+                position.x = WrapZoneRight + WrapZoneLeft - transform.position.x;
             }
         }
 
