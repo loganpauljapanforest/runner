@@ -19,7 +19,9 @@ public enum PlayerAnimationStates
     Run,
     Jump,
     Slide,
-    Hurt
+    Hurt,
+    Dash,
+    Slam
 };
 
 public class PlayerAnimationManager : MonoBehaviour
@@ -105,6 +107,12 @@ public class PlayerAnimationManager : MonoBehaviour
                 break;
             case PlayerAnimationStates.Hurt:
                 animator.Play("Hurt");
+                break;
+            case PlayerAnimationStates.Dash:
+                animator.Play("Dash");
+                break;
+            case PlayerAnimationStates.Slam:
+                animator.Play("Slam");
                 break;
         }
     }
