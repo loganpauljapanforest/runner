@@ -87,10 +87,10 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
         // Sliding
-        else if (Input.GetKey(SlideKey) && grounded)
+       /* else if (Input.GetKey(SlideKey) && grounded)
         {
             animationManager.SwitchTo(PlayerAnimationStates.Slide);
-        }
+        }*/
         // Dashing
         else if(Input.GetKeyDown(DashKey) && !grounded && !dashing)
         {

@@ -20,6 +20,7 @@ public class ScrollHorizontal : MonoBehaviour
     public float MoveSpeed = 10.0f;
     public float WrapZoneLeft = -18.0f;
     public float WrapZoneRight = 56.0f;
+    public bool cluster = false;
 
     // Update is called once per frame
     void Update()
@@ -30,7 +31,7 @@ public class ScrollHorizontal : MonoBehaviour
         // Left --> Right, Reset
         if(FlipDirection)
         {
-            if (transform.position.x >= WrapZoneRight)
+            if (transform.position.x >= WrapZoneRight && !cluster)
             {
                 position.x = WrapZoneLeft - transform.position.x - WrapZoneRight;
             }
@@ -38,11 +39,17 @@ public class ScrollHorizontal : MonoBehaviour
         // Left <-- Right, Reset
         else
         {
-            if (transform.position.x <= WrapZoneLeft)
+            if (transform.position.x <= WrapZoneLeft && !cluster)
             {
                 position.x = WrapZoneRight + WrapZoneLeft - transform.position.x;
             }
+
+            if(cluster && transform.position.x <= WrapZoneLeft)
+            {
+                Destroy(gameObject);
+            }
         }
+
 
         // Move
         if(FlipDirection)
