@@ -41,7 +41,7 @@ public class ScrollHorizontal : MonoBehaviour
         {
             if (transform.position.x <= WrapZoneLeft && !cluster)
             {
-                position.x = WrapZoneRight + WrapZoneLeft - transform.position.x;
+                position.x = WrapZoneRight + transform.position.x - WrapZoneLeft;
             }
 
             if(cluster && transform.position.x <= WrapZoneLeft)
