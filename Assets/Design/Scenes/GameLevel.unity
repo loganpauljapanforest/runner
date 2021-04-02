@@ -244,6 +244,8 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 5664061742683179888, guid: 1b09af6a6f0999f42b8722bc29a78774, type: 3}
   - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
+  - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
+  - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
   SpawnInterval: {x: 5, y: 8}
   SpawnPosition: {x: 52.65, y: -0.75, z: 0}
 --- !u!224 &380912068 stripped

@@ -39,6 +39,7 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerAnimationManager animationManager;
     private bool dashing = false;
     private Rigidbody2D myrb;
+    private bool grounded = true;
 
     // Start is called before the first frame update
     void Start()
@@ -68,8 +69,6 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool grounded = IsGrounded();
-
         if(transform.position.y < -0.5f)
         {
             transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
@@ -84,6 +83,7 @@ public class PlayerMovementController : MonoBehaviour
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
+                grounded = false;
             }
         }
         // Sliding
@@ -176,11 +176,7 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
+            grounded = true;
         } 
-    }
-
-    public bool IsGrounded()
-    {
-        return jumpsRemaining == MaxNumberOfJumps;
     }
 }
