@@ -371,8 +371,8 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 5664061742683179888, guid: 1b09af6a6f0999f42b8722bc29a78774, type: 3}
   - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
-  - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
-  - {fileID: 5664061742683179888, guid: 7c2d32603434d1346a8ae1742d25fe4b, type: 3}
+  - {fileID: 5664061742683179888, guid: 221966630d445294f897023a49cb6e1b, type: 3}
+  - {fileID: 5664061742683179888, guid: e43228e04a31de84d9b517d512334369, type: 3}
   SpawnInterval: {x: 5, y: 8}
   SpawnPosition: {x: 52.65, y: -0.75, z: 0}
 --- !u!224 &380912068 stripped
@@ -944,12 +944,12 @@ PrefabInstance:
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
