@@ -112,6 +112,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             myrb.gravityScale = 20;
 
+            animationManager.SwitchTo(PlayerAnimationStates.Slam);
+
             audioSource.PlayOneShot(SlamSound, 10.0F);
         }
         // Running
@@ -181,7 +183,7 @@ public class PlayerMovementController : MonoBehaviour
                 if (healthBarObj != null)
                 {
                     healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
-                    animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    //animationManager.SwitchTo(PlayerAnimationStates.Hurt);
                 }
             }
         }
