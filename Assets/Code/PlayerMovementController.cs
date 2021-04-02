@@ -41,6 +41,11 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D myrb;
     private bool grounded = true;
 
+    public AudioClip JumpSound;
+    public AudioClip DashSound;
+    public AudioClip SlamSound;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +69,8 @@ public class PlayerMovementController : MonoBehaviour
         PlayerSaveData.DistanceRun = 0;
 
         myrb = gameObject.GetComponent<Rigidbody2D>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -84,6 +91,8 @@ public class PlayerMovementController : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
                 grounded = false;
+
+                audioSource.PlayOneShot(JumpSound, 10.0F);
             }
         }
         // Sliding
@@ -95,11 +104,15 @@ public class PlayerMovementController : MonoBehaviour
         else if(Input.GetKeyDown(DashKey) && !grounded && !dashing)
         {
             dashing = true;
+
+            audioSource.PlayOneShot(DashSound, 10.0F);
         }
         // Slamming
         else if(Input.GetKeyDown(SlamKey) && !grounded)
         {
             myrb.gravityScale = 20;
+
+            audioSource.PlayOneShot(SlamSound, 10.0F);
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)

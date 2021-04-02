@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 22022183816750200}
   - component: {fileID: 5702680125714932156}
   - component: {fileID: 5702680125714932155}
-  - component: {fileID: 813322905480729868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -158,6 +157,9 @@ MonoBehaviour:
   SlideKey: 304
   DashKey: 100
   SlamKey: 115
+  JumpSound: {fileID: 8300000, guid: 9451e3e014bcc6b4baa855d66c39e7d0, type: 3}
+  DashSound: {fileID: 8300000, guid: fbfe2c70b6d169d4b98c44ad4b469bde, type: 3}
+  SlamSound: {fileID: 8300000, guid: dc1221526cd3db74a9c0becd427f3bb7, type: 3}
 --- !u!95 &22022183816750200
 Animator:
   serializedVersion: 3
@@ -288,23 +290,3 @@ MonoBehaviour:
   InvulnTime: 0.25
   CurrentState: 0
   PreviousState: 0
---- !u!114 &813322905480729868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5702680126517417189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab4943587f011748bb7f54221d917e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeBetweenSteps: 0.33
-  audioClips:
-  - {fileID: 8300000, guid: 903f48b2bd555ce4891f11725e8d33a8, type: 3}
-  - {fileID: 8300000, guid: e22c1c90a49244d4daa6dc82b1a8a843, type: 3}
-  - {fileID: 8300000, guid: a8bf33d78bbe93a40949bedc4a027fa9, type: 3}
-  - {fileID: 8300000, guid: b43da57625ab8c647b430ec1b5783765, type: 3}
-  - {fileID: 8300000, guid: e0f551d245e699f428cf80d4e476beb9, type: 3}
-  - {fileID: 8300000, guid: 67b4dfc346b14e94baa5285687b7698f, type: 3}
