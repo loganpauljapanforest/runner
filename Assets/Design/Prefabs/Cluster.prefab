@@ -1004,7 +1004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3049253019041089227}
   - component: {fileID: 4645588989116739210}
-  - component: {fileID: 3063911344763501031}
+  - component: {fileID: 6585901555665804369}
   m_Layer: 0
   m_Name: Cluster
   m_TagString: Floor
@@ -1055,7 +1055,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3063911344763501031
+--- !u!114 &6585901555665804369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1064,12 +1064,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5664061742683179888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f5052342b774aa4c9866dbede28286a, type: 3}
+  m_Script: {fileID: 11500000, guid: 462dbbb415b18ee4d8fde76c3a955913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyOnPlayerCollision: 0
-  Damage: 1
-  DestroyXLimit: -10
+  FlipDirection: 0
+  MoveSpeed: 10
+  WrapZoneLeft: -18
+  WrapZoneRight: 56
+  cluster: 1
 --- !u!1001 &2899759262869286437
 PrefabInstance:
   m_ObjectHideFlags: 0

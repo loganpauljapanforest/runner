@@ -936,6 +936,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5702680125714932155, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: CurrentState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702680126517417176, guid: 44a2f1fd3e785c143ba8383e2edee21b,
+        type: 3}
+      propertyPath: dashDistance
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_RootOrder

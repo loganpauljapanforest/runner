@@ -90,7 +90,6 @@ public class PlayerMovementController : MonoBehaviour
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
-                grounded = false;
 
                 audioSource.PlayOneShot(JumpSound, 10.0F);
             }
@@ -129,7 +128,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if(dashing)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector3(startingX + dashDistance, transform.position.y, transform.position.z), dashSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector3(startingX + dashDistance + startingX, transform.position.y, transform.position.z), dashSpeed);
             if(transform.position.x >= dashDistance)
             {
                 dashing = false;
@@ -160,6 +159,7 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+  
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Hit an Obstacle
@@ -192,6 +192,15 @@ public class PlayerMovementController : MonoBehaviour
         {
             jumpsRemaining = MaxNumberOfJumps;
             grounded = true;
-        } 
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.collider.gameObject.CompareTag("Floor"))
+        {
+            grounded = false;
+        }
     }
 }
