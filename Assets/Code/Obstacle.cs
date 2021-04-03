@@ -17,8 +17,9 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public bool DestroyOnPlayerCollision = true;
-    public int Damage = 1;
+    public int Damage = 100;
     public float DestroyXLimit = -10.0f;
+    public bool monster = false;
 
     private float yPosition = 0.0f;
     private GameObject player = null;
@@ -37,16 +38,20 @@ public class Obstacle : MonoBehaviour
     {
         float moveSpeed = -10.0f;
 
-        if(player != null)
+        if(player != null && !monster)
         {
             moveSpeed = -player.GetComponent<PlayerMovementController>().MoveSpeed;
         }
 
-        physics.velocity = new Vector3(moveSpeed, 0, 0);
-        transform.position = new Vector3(transform.position.x, 
-            yPosition, transform.position.z);
+        if(!monster)
+        {
+            physics.velocity = new Vector3(moveSpeed, 0, 0);
+               transform.position = new Vector3(transform.position.x, 
+                  yPosition, transform.position.z);
+        }
+       
 
-        if(transform.position.x <= DestroyXLimit)
+        if(transform.position.x <= DestroyXLimit && !monster)
         {
             Destroy(gameObject);
         }

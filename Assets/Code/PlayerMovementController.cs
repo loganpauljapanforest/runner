@@ -39,7 +39,8 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerAnimationManager animationManager;
     private bool dashing = false;
     private Rigidbody2D myrb;
-    private bool grounded = true;
+    public bool grounded = true;
+    private GameObject below;
 
     public AudioClip JumpSound;
     public AudioClip DashSound;
@@ -76,6 +77,19 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*below = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 1.5f), 1).gameObject;
+
+        if(below != null && below.CompareTag("Floor"))
+        {
+            grounded = true;
+            Debug.Log("84");
+        }
+        else
+        {
+            Debug.Log("88");
+            grounded = false;
+        }*/
+
         if(transform.position.y < -0.5f)
         {
             transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
@@ -191,16 +205,7 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
-            grounded = true;
         }
         
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.collider.gameObject.CompareTag("Floor"))
-        {
-            grounded = false;
-        }
     }
 }
