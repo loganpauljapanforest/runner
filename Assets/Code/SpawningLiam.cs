@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------------------------
+//
+// File Name:	SpawningLiam.cs
+// Author(s):	Liam Binford
+// Project:		Endless Runner
+// Course:		WANIC VGP2
+//
+// Copyright © 2021 DigiPen (USA) Corporation.
+//
+//------------------------------------------------------------------------------
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

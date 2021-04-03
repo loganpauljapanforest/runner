@@ -8,6 +8,7 @@
 //
 // Copyright © 2021 DigiPen (USA) Corporation.
 //
+//Modified by Liam Binford and Charles Sweatt
 //------------------------------------------------------------------------------
 
 using System.Collections;
