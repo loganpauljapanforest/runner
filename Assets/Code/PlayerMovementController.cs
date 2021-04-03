@@ -128,7 +128,7 @@ public class PlayerMovementController : MonoBehaviour
 
             animationManager.SwitchTo(PlayerAnimationStates.Slam);
 
-            audioSource.PlayOneShot(SlamSound, 10.0F);
+            audioSource.PlayOneShot(SlamSound, 8.0F);
         }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
