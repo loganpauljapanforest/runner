@@ -28,9 +28,9 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode SlideKey = KeyCode.LeftShift;
     public KeyCode DashKey = KeyCode.D;
     public KeyCode SlamKey = KeyCode.S;
-    
+    public int currentHealth = 0;
+
     private int jumpsRemaining = 0;
-    private int currentHealth = 0;
     private string nameOfHealthDisplayObject = "HealthBar";
     private string nameOfDistanceLabelObject = "DistanceLabel";
     private GameObject healthBarObj = null;
@@ -89,6 +89,7 @@ public class PlayerMovementController : MonoBehaviour
             Debug.Log("88");
             grounded = false;
         }*/
+
 
         if(transform.position.y < -0.5f)
         {
@@ -171,6 +172,13 @@ public class PlayerMovementController : MonoBehaviour
                     + distText + " m";
             }
         }
+
+        // Game Over
+        if (currentHealth <= 0)
+        {
+            // Load score level
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+        }
     }
 
   
@@ -184,12 +192,7 @@ public class PlayerMovementController : MonoBehaviour
             if (obstacle != null)
             {
                 currentHealth -= obstacle.Damage;
-                // Game Over
-                if (currentHealth <= 0)
-                {
-                    // Load score level
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
-                }
+               
                 if (obstacle.DestroyOnPlayerCollision)
                 {
                     Destroy(collision.collider.gameObject);
@@ -208,4 +211,5 @@ public class PlayerMovementController : MonoBehaviour
         }
         
     }
+   
 }

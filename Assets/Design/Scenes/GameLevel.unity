@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 65942616}
   - component: {fileID: 65942615}
   - component: {fileID: 65942618}
+  - component: {fileID: 65942619}
   m_Layer: 0
   m_Name: Monster art_0
-  m_TagString: Obstacle
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +251,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.75, y: 2.75}
   m_EdgeRadius: 0
+--- !u!114 &65942619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65942614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75324d8f052d1c4d86d4abfef02eacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &124490713
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +784,7 @@ GameObject:
   - component: {fileID: 1614719384}
   - component: {fileID: 1614719383}
   - component: {fileID: 1614719382}
+  - component: {fileID: 1614719386}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -859,6 +873,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!61 &1614719386
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614719381}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1928392048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
